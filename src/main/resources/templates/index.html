@@ -6,5 +6,16 @@
 </head>
 <body>
 <h1>My Recipes!!!</h1>
+
+<div th:each="recipe: ${recipes}">
+    <h2 th:text="${recipe.getDescription()}">Recipe description</h2>
+    <h3>Ingredients</h3>
+    <ul th:each="ingredient: ${recipe.getIngredients()}">
+        <li th:text="${ingredient.getAmount() + ' ' + ingredient.getUom().getDescription() + ' ' + ingredient.getDescription()} "></li>
+    </ul>
+
+</div>
+
+
 </body>
 </html>
